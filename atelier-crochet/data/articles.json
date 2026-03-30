@@ -1,0 +1,64 @@
+{
+  "atelier": {
+    "nom": "L'aur dans les mailles",
+    "slogan": "Créations artisanales au crochet, faites main avec amour",
+    "description": "Bienvenue dans mon atelier, où chaque point de crochet est tissé avec soin et passion. Je crée des pièces uniques, personnalisables selon vos envies — sacs, accessoires, décoration — pour vous accompagner au quotidien avec élégance.",
+    "instagram": "@monatelierducrochet"
+  },
+  "articles": [
+    {
+      "id": 1,
+      "nom": "Sac Bohème",
+      "description": "Sac au crochet fait main, parfait pour l'été. Solide, léger et terriblement chic. Dimensions : 30x35 cm environ.",
+      "photo": "/images/sac-boheme.jpg",
+      "prix": "45€",
+      "badge": "Bestseller",
+      "couleurs": [
+        { "nom": "Écru", "hex": "#F5F0E8" },
+        { "nom": "Terracotta", "hex": "#C4673A" },
+        { "nom": "Sauge", "hex": "#7D9B76" }
+      ],
+      "options": ["Bandoulière", "Décoration florale", "Pompon"]
+    },
+    {
+      "id": 2,
+      "nom": "Pochette Étoile",
+      "description": "Pochette à motif étoile, idéale pour ranger vos essentiels avec style. Fermeture zip. Dimensions : 20x15 cm.",
+      "photo": "/images/pochette-etoile.jpg",
+      "prix": "28€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Crème", "hex": "#FFF8EC" },
+        { "nom": "Marine", "hex": "#2C3E6B" },
+        { "nom": "Rose Poudré", "hex": "#E8B4B8" }
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "Tote Bag Floral",
+      "description": "Grand tote bag à motifs floraux, confectionné avec des fils de coton naturel. Anse longue. Capacité généreuse.",
+      "photo": "/images/tote-bag-floral.jpg",
+      "prix": "55€",
+      "badge": "Nouveau",
+      "couleurs": [
+        { "nom": "Blanc Cassé", "hex": "#F9F4EC" },
+        { "nom": "Vert Menthe", "hex": "#88C9A1" },
+        { "nom": "Moutarde", "hex": "#D4A017" }
+      ],
+      "options": ["Bandoulière", "Décoration brodée"]
+    },
+    {
+      "id": 4,
+      "nom": "Panier Tressé",
+      "description": "Panier décoratif idéal pour la salle de bain ou le salon. Rangement élégant et pratique. Hauteur : 20 cm.",
+      "photo": "/images/panier-tresse.jpg",
+      "prix": "38€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Naturel", "hex": "#E8D5B7" },
+        { "nom": "Caramel", "hex": "#B5732A" }
+      ],
+      "options": ["Décoration florale", "Nœud décoratif"]
+    }
+  ]
+}

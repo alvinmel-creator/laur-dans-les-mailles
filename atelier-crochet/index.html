@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'aur dans les mailles — Créations au Crochet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --noir:      #080808;
+      --noir-soft: #111111;
+      --blanc:     #F8F5EF;
+      --or:        #B8974A;
+      --or-vif:    #D4AF62;
+      --or-pale:   #EAD89C;
+      --or-ombre:  #7A6230;
+      --ivoire:    #F2EDE3;
+      --gris:      #5A5550;
+      --gris-fin:  #D6D0C8;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--noir); color:var(--blanc); font-family:'EB Garamond',serif; overflow-x:hidden; }
+    ::-webkit-scrollbar { width:3px; }
+    ::-webkit-scrollbar-track { background:var(--noir); }
+    ::-webkit-scrollbar-thumb { background:var(--or); }
+
+    .ligne-or { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin:1.4rem 0; }
+    .ligne-or::before,.ligne-or::after { content:''; flex:1; max-width:120px; height:0.5px; background:linear-gradient(to right,transparent,var(--or),transparent); }
+    .ligne-or-diamond { width:5px; height:5px; background:var(--or); transform:rotate(45deg); flex-shrink:0; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 4rem; height:80px; background:rgba(8,8,8,0.97); border-bottom:0.5px solid rgba(184,151,74,0.18); backdrop-filter:blur(12px); }
+    .nav-logo { font-family:'Pinyon Script',cursive; font-size:2.1rem; color:var(--or-vif); text-decoration:none; transition:color 0.3s; }
+    .nav-logo:hover { color:var(--or-pale); }
+    .nav-centre { position:absolute; left:50%; transform:translateX(-50%); display:flex; gap:0.6rem; align-items:center; }
+    .nav-dot { width:3px; height:3px; background:var(--or); border-radius:50%; opacity:0.4; }
+    .nav-links { display:flex; gap:2.8rem; }
+    .nav-links a { font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(248,245,239,0.55); text-decoration:none; position:relative; transition:color 0.3s; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:0.5px; background:var(--or); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+    .nav-links a:hover { color:var(--or-vif); }
+    .nav-links a:hover::after { transform:scaleX(1); }
+
+    /* HERO */
+    #accueil { min-height:100vh; background:var(--noir); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 2rem 6rem; position:relative; overflow:hidden; }
+    #accueil::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; border-radius:50%; border:0.5px solid rgba(184,151,74,0.05); pointer-events:none; }
+    #accueil::after { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:580px; height:580px; border-radius:50%; border:0.5px solid rgba(184,151,74,0.08); pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; max-width:800px; }
+    .hero-eyebrow { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.55em; text-transform:uppercase; color:var(--or); margin-bottom:2.8rem; opacity:0; animation:fadeIn 1s 0.3s forwards; }
+    .hero-logo { font-family:'Pinyon Script',cursive; font-size:clamp(5rem,12vw,10rem); color:var(--blanc); line-height:0.95; margin-bottom:0.3rem; opacity:0; animation:fadeIn 1.2s 0.7s forwards; }
+    .hero-logo em { color:var(--or-vif); font-style:normal; }
+    .hero-tagline { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.5em; text-transform:uppercase; color:rgba(248,245,239,0.28); margin-top:1.2rem; opacity:0; animation:fadeIn 1s 1.1s forwards; }
+    .hero-divider { margin:3rem auto; opacity:0; animation:fadeIn 1s 1.3s forwards; }
+    .hero-slogan { font-family:'Cormorant',serif; font-size:clamp(1.15rem,2.2vw,1.5rem); font-weight:300; font-style:italic; color:rgba(248,245,239,0.72); letter-spacing:0.04em; line-height:1.85; max-width:560px; margin:0 auto 1.6rem; opacity:0; animation:fadeIn 1s 1.5s forwards; }
+    .hero-desc { font-size:1rem; color:rgba(248,245,239,0.38); max-width:480px; margin:0 auto 3rem; line-height:2.1; letter-spacing:0.02em; opacity:0; animation:fadeIn 1s 1.7s forwards; }
+    .btn-luxe { display:inline-block; padding:1rem 3.5rem; border:0.5px solid rgba(184,151,74,0.6); color:var(--or-vif); font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; text-decoration:none; background:transparent; cursor:pointer; transition:all 0.45s ease; opacity:0; animation:fadeIn 1s 1.9s forwards; position:relative; overflow:hidden; }
+    .btn-luxe::before { content:''; position:absolute; inset:0; background:var(--or); transform:translateX(-101%); transition:transform 0.45s ease; z-index:0; }
+    .btn-luxe:hover { color:var(--noir); border-color:var(--or); }
+    .btn-luxe:hover::before { transform:translateX(0); }
+    .btn-luxe span { position:relative; z-index:1; }
+    .hero-scroll { position:absolute; bottom:3rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.8rem; opacity:0; animation:fadeIn 1s 2.3s forwards; }
+    .hero-scroll-text { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.4em; text-transform:uppercase; color:rgba(184,151,74,0.45); }
+    .scroll-trait { width:0.5px; height:50px; background:linear-gradient(to bottom,var(--or),transparent); animation:scrollDrop 2s 2.5s infinite; }
+    @keyframes scrollDrop { 0%{opacity:1;transform:scaleY(1);transform-origin:top;} 100%{opacity:0;transform:scaleY(0);transform-origin:top;} }
+
+    /* MANIFESTE */
+    #manifeste { background:var(--ivoire); padding:10rem 2rem; text-align:center; position:relative; }
+    #manifeste::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--or),transparent); }
+    #manifeste::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--or),transparent); }
+    .manifeste-inner { max-width:680px; margin:0 auto; }
+    .manifeste-number { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.45em; color:var(--or); margin-bottom:2.5rem; }
+    .manifeste-titre { font-family:'Cormorant',serif; font-size:clamp(2.2rem,5vw,3.5rem); font-weight:300; color:var(--noir); line-height:1.25; margin-bottom:2rem; }
+    .manifeste-titre em { font-style:italic; color:var(--or-ombre); }
+    .manifeste-texte { font-size:1.12rem; line-height:2.1; color:#3A3530; letter-spacing:0.02em; }
+    .pilliers { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:7rem; border-top:0.5px solid rgba(0,0,0,0.1); }
+    .pillier { padding:4rem 2.5rem; border-right:0.5px solid rgba(0,0,0,0.1); text-align:center; }
+    .pillier:last-child { border-right:none; }
+    .pillier-num { font-family:'Cinzel',serif; font-size:2rem; color:var(--or); opacity:0.25; display:block; margin-bottom:1.5rem; }
+    .pillier h3 { font-family:'Cormorant',serif; font-size:1.3rem; font-weight:400; color:var(--noir); margin-bottom:1rem; letter-spacing:0.04em; }
+    .pillier p { font-size:0.92rem; color:#5A5550; line-height:1.9; }
+
+    /* BOUTIQUE */
+    #boutique { background:var(--noir); padding:10rem 4rem; position:relative; }
+    #boutique::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--or),transparent); }
+    .boutique-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:6rem; gap:2rem; max-width:1200px; margin-left:auto; margin-right:auto; margin-bottom:6rem; }
+    .section-label { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--or); margin-bottom:1.5rem; display:block; }
+    .section-titre { font-family:'Cormorant',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:var(--blanc); line-height:1.1; }
+    .section-titre em { font-style:italic; color:var(--or-vif); }
+    .boutique-note { font-size:0.9rem; color:rgba(248,245,239,0.3); line-height:1.9; max-width:280px; text-align:right; letter-spacing:0.02em; }
+
+    /* GRILLE */
+    .articles-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(184,151,74,0.1); max-width:1200px; margin:0 auto; }
+    .article-card { background:var(--noir-soft); overflow:hidden; position:relative; transition:background 0.4s; }
+    .article-card:hover { background:#161410; }
+    .article-img-wrap { position:relative; overflow:hidden; aspect-ratio:3/4; background:#1A1612; }
+    .article-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); filter:brightness(0.88); }
+    .article-card:hover .article-img-wrap img { transform:scale(1.06); filter:brightness(1); }
+    .article-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#15120E; }
+    .article-overlay { position:absolute; inset:0; background:rgba(8,8,8,0.12); opacity:0; transition:opacity 0.4s; pointer-events:none; }
+    .article-card:hover .article-overlay { opacity:1; }
+    .article-badge { position:absolute; top:1.5rem; left:1.5rem; background:transparent; border:0.5px solid var(--or); color:var(--or-vif); font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.3em; text-transform:uppercase; padding:0.35rem 0.9rem; }
+    .article-body { padding:2.2rem 2.2rem; border-top:0.5px solid rgba(184,151,74,0.12); }
+    .article-num { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.35em; color:rgba(184,151,74,0.35); margin-bottom:0.8rem; display:block; }
+    .article-nom { font-family:'Cormorant',serif; font-size:1.7rem; font-weight:300; color:var(--blanc); margin-bottom:0.8rem; letter-spacing:0.02em; }
+    .article-desc { font-size:0.9rem; color:rgba(248,245,239,0.4); line-height:1.9; margin-bottom:1.8rem; letter-spacing:0.01em; }
+    .article-sep { height:0.5px; background:linear-gradient(to right,rgba(184,151,74,0.25),transparent); margin-bottom:1.8rem; }
+    .couleurs-label { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(184,151,74,0.5); margin-bottom:0.9rem; display:block; }
+    .couleurs-wrap { display:flex; gap:0.65rem; margin-bottom:0.6rem; }
+    .couleur-pastille { width:18px; height:18px; border-radius:50%; border:1px solid rgba(255,255,255,0.07); cursor:pointer; transition:transform 0.25s; }
+    .couleur-pastille:hover { transform:scale(1.3); }
+    .couleur-pastille.active { box-shadow:0 0 0 1.5px var(--noir-soft),0 0 0 3px var(--or); }
+    .couleur-nom-selected { font-family:'Cormorant',serif; font-size:0.9rem; font-style:italic; color:var(--or-vif); min-height:1.4rem; margin-bottom:1.6rem; letter-spacing:0.03em; }
+    .options-label { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(184,151,74,0.5); margin-bottom:0.9rem; display:block; }
+    .options-wrap { display:flex; flex-direction:column; gap:0.55rem; margin-bottom:1.6rem; }
+    .option-toggle { display:flex; align-items:center; gap:0.7rem; cursor:pointer; user-select:none; transition:color 0.25s; color:rgba(248,245,239,0.45); font-family:'Cormorant',serif; font-size:0.95rem; letter-spacing:0.03em; }
+    .option-toggle:hover { color:rgba(248,245,239,0.75); }
+    .option-toggle.active { color:var(--or-vif); }
+    .option-box { width:14px; height:14px; border:0.5px solid rgba(184,151,74,0.35); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.25s; }
+    .option-toggle:hover .option-box { border-color:rgba(184,151,74,0.6); }
+    .option-toggle.active .option-box { border-color:var(--or); background:rgba(184,151,74,0.1); }
+    .option-check { width:7px; height:5px; border-left:1px solid var(--or); border-bottom:1px solid var(--or); transform:rotate(-45deg) translateY(-1px); opacity:0; transition:opacity 0.2s; }
+    .option-toggle.active .option-check { opacity:1; }
+    .article-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .article-prix { font-family:'Cormorant',serif; font-size:1.9rem; font-weight:300; color:var(--or-vif); letter-spacing:0.02em; }
+    .btn-commander { display:inline-flex; align-items:center; gap:0.7rem; padding:0.75rem 1.6rem; border:0.5px solid rgba(184,151,74,0.35); color:rgba(248,245,239,0.6); background:transparent; font-family:'Cinzel',serif; font-size:0.55rem; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:all 0.4s ease; position:relative; overflow:hidden; }
+    .btn-commander::before { content:''; position:absolute; inset:0; background:var(--or); transform:translateX(-101%); transition:transform 0.4s ease; z-index:0; }
+    .btn-commander:hover { color:var(--noir); border-color:var(--or); }
+    .btn-commander:hover::before { transform:translateX(0); }
+    .btn-commander span,.btn-commander svg { position:relative; z-index:1; }
+    .btn-commander svg { width:12px; height:12px; fill:currentColor; }
+
+    /* CONTACT */
+    #contact { background:var(--ivoire); padding:10rem 2rem; text-align:center; position:relative; }
+    #contact::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--or),transparent); }
+    .contact-inner { max-width:620px; margin:0 auto; }
+    .contact-titre { font-family:'Cormorant',serif; font-size:clamp(2.2rem,5vw,3.4rem); font-weight:300; color:var(--noir); line-height:1.2; margin-bottom:1.8rem; }
+    .contact-titre em { font-style:italic; color:var(--or-ombre); }
+    .contact-texte { font-size:1.05rem; color:#5A5550; line-height:2.1; margin-bottom:3rem; letter-spacing:0.02em; }
+    .btn-ig { display:inline-flex; align-items:center; gap:0.9rem; padding:1.1rem 3rem; background:var(--noir); color:var(--or-vif); border:0.5px solid rgba(0,0,0,0.12); font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; text-decoration:none; transition:all 0.4s; position:relative; overflow:hidden; }
+    .btn-ig::before { content:''; position:absolute; inset:0; background:var(--or-ombre); transform:translateX(-101%); transition:transform 0.4s ease; z-index:0; }
+    .btn-ig:hover { color:var(--blanc); }
+    .btn-ig:hover::before { transform:translateX(0); }
+    .btn-ig svg,.btn-ig span { position:relative; z-index:1; }
+    .btn-ig svg { width:16px; height:16px; fill:currentColor; }
+
+    /* FOOTER */
+    footer { background:var(--noir); padding:5rem 4rem 3rem; border-top:0.5px solid rgba(184,151,74,0.12); }
+    .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:3rem; padding-bottom:3rem; border-bottom:0.5px solid rgba(184,151,74,0.08); }
+    .footer-logo { font-family:'Pinyon Script',cursive; font-size:2.5rem; color:var(--or-vif); display:block; margin-bottom:1rem; }
+    .footer-brand p { font-size:0.85rem; color:rgba(248,245,239,0.28); line-height:1.9; max-width:260px; }
+    .footer-col h4 { font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--or); margin-bottom:1.4rem; }
+    .footer-col p { font-size:0.88rem; color:rgba(248,245,239,0.35); line-height:2; }
+    .footer-col a { display:block; font-size:0.88rem; color:rgba(248,245,239,0.35); text-decoration:none; line-height:2; transition:color 0.3s; }
+    .footer-col a:hover { color:var(--or-vif); }
+    .footer-bottom { padding-top:2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .footer-bottom p { font-family:'Cinzel',serif; font-size:0.52rem; letter-spacing:0.18em; color:rgba(248,245,239,0.15); text-transform:uppercase; }
+    .footer-or { color:rgba(184,151,74,0.25); font-size:0.7rem; letter-spacing:0.3em; }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.9s ease,transform 0.9s ease; }
+    .reveal.up { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:0.12s; }
+    .reveal-delay-2 { transition-delay:0.24s; }
+    .reveal-delay-3 { transition-delay:0.36s; }
+
+    /* RESPONSIVE */
+    @media (max-width:900px) {
+      nav { padding:0 1.5rem; }
+      .nav-centre { display:none; }
+      .nav-links { gap:1.5rem; }
+      #boutique { padding:6rem 1.5rem; }
+      .boutique-header { flex-direction:column; align-items:flex-start; }
+      .boutique-note { text-align:left; max-width:100%; }
+      .articles-grid { grid-template-columns:1fr; }
+      .pilliers { grid-template-columns:1fr; }
+      .pillier { border-right:none; border-bottom:0.5px solid rgba(0,0,0,0.1); }
+      .footer-top { flex-direction:column; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#accueil" class="nav-logo">L'aur dans les mailles</a>
+  <div class="nav-centre">
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
+  </div>
+  <div class="nav-links">
+    <a href="#accueil">Accueil</a>
+    <a href="#boutique">Collection</a>
+    <a href="#contact">Commande</a>
+  </div>
+</nav>
+
+<section id="accueil">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Maison Artisanale &nbsp;—&nbsp; Créations au Crochet</p>
+    <h1 class="hero-logo">L'aur <em>dans les mailles</em></h1>
+    <p class="hero-tagline">Pièces uniques &nbsp;·&nbsp; Faites main &nbsp;·&nbsp; Sur commande</p>
+    <div class="hero-divider"><div class="ligne-or"><div class="ligne-or-diamond"></div></div></div>
+    <p class="hero-slogan" id="slogan">Chaque point, une intention. Chaque pièce, une histoire.</p>
+    <p class="hero-desc" id="description">Bienvenue dans mon atelier, où chaque création au crochet est tissée avec soin et passion. Des pièces uniques, personnalisables, pour vous accompagner avec élégance.</p>
+    <a href="#boutique" class="btn-luxe"><span>Découvrir la collection</span></a>
+  </div>
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Défiler</span>
+    <div class="scroll-trait"></div>
+  </div>
+</section>
+
+<section id="manifeste">
+  <div class="manifeste-inner">
+    <p class="manifeste-number reveal">01 &nbsp;—&nbsp; L'atelier</p>
+    <h2 class="manifeste-titre reveal reveal-delay-1">L'art du fil,<br><em>sublimé à la main</em></h2>
+    <div class="ligne-or reveal reveal-delay-2"><div class="ligne-or-diamond"></div></div>
+    <p class="manifeste-texte reveal reveal-delay-3">Dans chaque création naît une rencontre entre le fil et la main, entre la tradition et le raffinement contemporain. Mon atelier est un espace où le temps ralentit, où chaque point est posé avec conscience, où chaque pièce devient unique avant même d'être achevée.</p>
+    <div class="pilliers">
+      <div class="pillier reveal">
+        <span class="pillier-num">I</span>
+        <h3>Fait Main</h3>
+        <p>Chaque création réalisée entièrement à la main, point par point, avec les fils les plus doux.</p>
+      </div>
+      <div class="pillier reveal reveal-delay-1">
+        <span class="pillier-num">II</span>
+        <h3>Sur Mesure</h3>
+        <p>Couleurs, dimensions, finitions — chaque pièce s'adapte à vos désirs, sur commande exclusive.</p>
+      </div>
+      <div class="pillier reveal reveal-delay-2">
+        <span class="pillier-num">III</span>
+        <h3>Commande Privée</h3>
+        <p>Le service se fait par message privé Instagram, pour un accompagnement personnel et attentionné.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="boutique">
+  <div class="boutique-header reveal">
+    <div>
+      <span class="section-label">02 — Collection</span>
+      <h2 class="section-titre">Nos<br><em>créations</em></h2>
+    </div>
+    <p class="boutique-note">Chaque article est disponible en plusieurs coloris. Les commandes s'effectuent par message privé sur Instagram.</p>
+  </div>
+  <div class="articles-grid" id="articles-grid"></div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <span class="section-label reveal">03 — Commande</span>
+    <h2 class="contact-titre reveal reveal-delay-1">Une pièce vous<br><em>fait envie ?</em></h2>
+    <div class="ligne-or reveal reveal-delay-2"><div class="ligne-or-diamond"></div></div>
+    <p class="contact-texte reveal reveal-delay-2">Toutes les commandes se font directement sur Instagram, par message privé. Indiquez la pièce souhaitée, le coloris et vos préférences — je vous réponds personnellement pour créer la pièce qui vous ressemble.</p>
+    <a href="#" class="btn-ig reveal reveal-delay-3" id="btn-instagram-global">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span>Passer commande sur Instagram</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo" id="footer-logo">L'aur dans les mailles</span>
+      <p>Créations artisanales au crochet, conçues avec passion et offertes en pièces uniques.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#accueil">Accueil</a>
+      <a href="#boutique">Collection</a>
+      <a href="#contact">Passer commande</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Commandes exclusivement<br>par message privé Instagram</p>
+      <a href="#" id="footer-ig-link" style="margin-top:0.5rem;color:rgba(184,151,74,0.5);">@monatelierducrochet</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 L'aur dans les mailles — Tous droits réservés</p>
+    <span class="footer-or">✦ &nbsp; ✦ &nbsp; ✦</span>
+    <p>Fait avec amour, point par point</p>
+  </div>
+</footer>
+
+<script>
+async function chargerArticles() {
+  try {
+    const r = await fetch('data/articles.json');
+    const data = await r.json();
+    if (data.atelier) {
+      const a = data.atelier;
+      document.getElementById('slogan').textContent = a.slogan || '';
+      document.getElementById('description').textContent = a.description || '';
+      document.title = (a.nom||"L'aur dans les mailles") + ' — Créations au Crochet';
+      document.querySelectorAll('.nav-logo, #footer-logo').forEach(el => el.textContent = a.nom||"L'aur dans les mailles");
+      const pseudo = (a.instagram||'').replace('@','');
+      if (pseudo) {
+        document.getElementById('btn-instagram-global').href = `https://ig.me/m/${pseudo}`;
+        const fi = document.getElementById('footer-ig-link');
+        fi.textContent = a.instagram; fi.href = `https://www.instagram.com/${pseudo}`;
+      }
+    }
+    afficherArticles(data.articles||[], data.atelier?.instagram||'');
+  } catch(e) { afficherArticles(exemples(), '@monatelierducrochet'); }
+}
+
+function exemples() {
+  return [
+    {id:1,nom:"Sac Bohème",prix:"45€",badge:"Bestseller",description:"Sac au crochet fait main, parfait pour l'été. Solide, léger, d'une élégance naturelle.",photo:null,couleurs:[{nom:"Écru",hex:"#F5F0E8"},{nom:"Terracotta",hex:"#C4673A"},{nom:"Sauge",hex:"#7D9B76"}],options:["Bandoulière","Décoration florale","Pompon"]},
+    {id:2,nom:"Tote Bag Floral",prix:"55€",badge:"Nouveau",description:"Grand tote bag à motifs floraux, confectionné en coton naturel. Anse longue, capacité généreuse.",photo:null,couleurs:[{nom:"Blanc Cassé",hex:"#F9F4EC"},{nom:"Vert Menthe",hex:"#88C9A1"},{nom:"Moutarde",hex:"#D4A017"}],options:["Bandoulière","Décoration brodée"]},
+    {id:3,nom:"Pochette Étoile",prix:"28€",badge:null,description:"Pochette à motif étoile, idéale pour vos essentiels. Fermeture zip, finition soignée.",photo:null,couleurs:[{nom:"Crème",hex:"#FFF8EC"},{nom:"Marine",hex:"#2C3E6B"},{nom:"Rose Poudré",hex:"#E8B4B8"}]},
+    {id:4,nom:"Panier Tressé",prix:"38€",badge:null,description:"Panier décoratif et fonctionnel, idéal pour la salle de bain ou le salon.",photo:null,couleurs:[{nom:"Naturel",hex:"#E8D5B7"},{nom:"Caramel",hex:"#B5732A"}],options:["Décoration florale","Nœud décoratif"]}
+  ];
+}
+
+function afficherArticles(articles, instagram) {
+  document.getElementById('articles-grid').innerHTML = articles.map((a,i) => carteHtml(a,i+1)).join('');
+
+  function buildMsg(card) {
+    const pseudo = instagram.replace('@','');
+    const nom = card.dataset.nom;
+    const prix = card.dataset.prix;
+    const couleur = card.querySelector('.couleur-pastille.active')?.dataset.nom || '';
+    const optionsActives = [...card.querySelectorAll('.option-toggle.active')].map(o => o.dataset.option);
+    const optStr = optionsActives.length ? ` + ${optionsActives.join(' + ')}` : '';
+    const msg = encodeURIComponent(`Bonjour, je souhaite commander : ${nom} (${prix}) en coloris ${couleur}${optStr} 🧶`);
+    return pseudo ? `https://ig.me/m/${pseudo}?text=${msg}` : '#';
+  }
+
+  document.querySelectorAll('.couleur-pastille').forEach(p => {
+    p.addEventListener('click', () => {
+      const card = p.closest('.article-card');
+      card.querySelectorAll('.couleur-pastille').forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      card.querySelector('.couleur-nom-selected').textContent = p.dataset.nom;
+      card.querySelector('.btn-commander').href = buildMsg(card);
+    });
+  });
+
+  document.querySelectorAll('.option-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      btn.closest('.article-card').querySelector('.btn-commander').href = buildMsg(btn.closest('.article-card'));
+    });
+  });
+
+  articles.forEach(a => {
+    const card = document.querySelector(`[data-id="${a.id}"]`);
+    if (!card) return;
+    const p = card.querySelector('.couleur-pastille');
+    if (p) {
+      p.classList.add('active');
+      card.querySelector('.couleur-nom-selected').textContent = p.dataset.nom;
+      card.querySelector('.btn-commander').href = buildMsg(card);
+    }
+  });
+  observeReveal();
+}
+
+function carteHtml(a, num) {
+  const pastilles = (a.couleurs||[]).map(c => `<div class="couleur-pastille" style="background:${c.hex}" data-nom="${c.nom}" title="${c.nom}"></div>`).join('');
+  const img = a.photo ? `<img src="${a.photo}" alt="${a.nom}" loading="lazy"/>` :
+    `<div class="article-placeholder"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="45" cy="45" r="43" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><circle cx="45" cy="45" r="28" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><circle cx="45" cy="45" r="13" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><line x1="2" y1="45" x2="88" y2="45" stroke="#B8974A" stroke-width="0.4" opacity="0.15"/><line x1="45" y1="2" x2="45" y2="88" stroke="#B8974A" stroke-width="0.4" opacity="0.15"/></svg></div>`;
+  const badge = a.badge ? `<span class="article-badge">${a.badge}</span>` : '';
+  const optionsHtml = (a.options && a.options.length)
+    ? `<span class="options-label">Personnalisation</span>
+       <div class="options-wrap">${a.options.map(o => `<div class="option-toggle" data-option="${o}"><div class="option-box"><div class="option-check"></div></div>${o}</div>`).join('')}</div>`
+    : '';
+  return `<div class="article-card reveal" data-id="${a.id}" data-nom="${a.nom}" data-prix="${a.prix}">
+    <div class="article-img-wrap">${img}<div class="article-overlay"></div>${badge}</div>
+    <div class="article-body">
+      <span class="article-num">N° ${String(num).padStart(2,'0')}</span>
+      <h3 class="article-nom">${a.nom}</h3>
+      <p class="article-desc">${a.description}</p>
+      <div class="article-sep"></div>
+      <span class="couleurs-label">Coloris disponibles</span>
+      <div class="couleurs-wrap">${pastilles}</div>
+      <p class="couleur-nom-selected"></p>
+      ${optionsHtml}
+      <div class="article-footer">
+        <div class="article-prix">${a.prix}</div>
+        <a href="#" class="btn-commander" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Commander</span>
+        </a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function observeReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('up');obs.unobserve(e.target);} });
+  }, {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+chargerArticles();
+observeReveal();
+</script>
+</body>
+</html>
