@@ -93,8 +93,8 @@
     .articles-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(184,151,74,0.1); max-width:1200px; margin:0 auto; }
     .article-card { background:var(--noir-soft); overflow:hidden; position:relative; transition:background 0.4s; }
     .article-card:hover { background:#161410; }
-    .article-img-wrap { position:relative; overflow:hidden; aspect-ratio:3/4; background:#1A1612; }
-    .article-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); filter:brightness(0.88); }
+    .article-img-wrap { position:relative; overflow:hidden; aspect-ratio:4/5; background:#1A1612; }
+    .article-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); filter:brightness(0.88); }
     .article-card:hover .article-img-wrap img { transform:scale(1.06); filter:brightness(1); }
     .article-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#15120E; }
     .article-overlay { position:absolute; inset:0; background:rgba(8,8,8,0.12); opacity:0; transition:opacity 0.4s; pointer-events:none; }
@@ -365,7 +365,7 @@ function afficherArticles(articles, instagram) {
 
 function carteHtml(a, num) {
   const pastilles = (a.couleurs||[]).map(c => `<div class="couleur-pastille" style="background:${c.hex}" data-nom="${c.nom}" title="${c.nom}"></div>`).join('');
-  const img = a.photo ? `<img src="${a.photo}" alt="${a.nom}" loading="lazy"/>` :
+  const img = a.photo ? `<img src="${a.photo}" alt="${a.nom}" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 50vw"/>` :
     `<div class="article-placeholder"><svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="45" cy="45" r="43" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><circle cx="45" cy="45" r="28" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><circle cx="45" cy="45" r="13" stroke="#B8974A" stroke-width="0.4" opacity="0.2"/><line x1="2" y1="45" x2="88" y2="45" stroke="#B8974A" stroke-width="0.4" opacity="0.15"/><line x1="45" y1="2" x2="45" y2="88" stroke="#B8974A" stroke-width="0.4" opacity="0.15"/></svg></div>`;
   const badge = a.badge ? `<span class="article-badge">${a.badge}</span>` : '';
   const optionsHtml = (a.options && a.options.length)

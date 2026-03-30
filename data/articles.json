@@ -2,63 +2,176 @@
   "atelier": {
     "nom": "L'aur dans les mailles",
     "slogan": "Créations artisanales au crochet, faites main avec amour",
-    "description": "Bienvenue dans mon atelier, où chaque point de crochet est tissé avec soin et passion. Je crée des pièces uniques, personnalisables selon vos envies — sacs, accessoires, décoration — pour vous accompagner au quotidien avec élégance.",
+    "description": "Bienvenue dans mon atelier, où chaque création au crochet est tissée avec soin et passion. Des pièces uniques, personnalisables selon vos envies — sacs, accessoires, vêtements — pour vous accompagner avec élégance.",
     "instagram": "@monatelierducrochet"
   },
   "articles": [
     {
       "id": 1,
-      "nom": "Sac Bohème",
-      "description": "Sac au crochet fait main, parfait pour l'été. Solide, léger et terriblement chic. Dimensions : 30x35 cm environ.",
-      "photo": "/images/sac-lv.png",
-      "prix": "45€",
-      "badge": "Bestseller",
+      "nom": "Porte-cartes turquoise",
+      "description": "Porte-cartes élégant en crochet, réalisé à la main dans une teinte turquoise raffinée. Idéal pour organiser vos essentiels avec style. Dimensions : 14 × 9,5 cm (fermé) / 17 cm (ouvert). Fil t-shirt polyester, lavable en machine.",
+      "photo": "/images/porte-cartes-turquoise.jpg",
+      "prix": "35€",
+      "badge": null,
       "couleurs": [
-        { "nom": "Écru", "hex": "#F5F0E8" },
-        { "nom": "Terracotta", "hex": "#C4673A" },
-        { "nom": "Sauge", "hex": "#7D9B76" }
+        { "nom": "Turquoise", "hex": "#2ABFBF" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
       ],
-      "options": ["Bandoulière", "Décoration florale", "Pompon"]
+      "options": []
     },
     {
       "id": 2,
-      "nom": "Pochette Étoile",
-      "description": "Pochette à motif étoile, idéale pour ranger vos essentiels avec style. Fermeture zip. Dimensions : 20x15 cm.",
-      "photo": "/images/pochette-etoile.jpg",
-      "prix": "28€",
+      "nom": "Sac signature noir",
+      "description": "Sac noir au design élégant, entièrement réalisé à la main. Une pièce intemporelle qui allie simplicité et raffinement. Fil t-shirt polyester, lavable en machine. Temps de réalisation : 8 heures.",
+      "photo": "/images/sac-signature-noir.jpg",
+      "prix": "80€",
       "badge": null,
       "couleurs": [
-        { "nom": "Crème", "hex": "#FFF8EC" },
-        { "nom": "Marine", "hex": "#2C3E6B" },
-        { "nom": "Rose Poudré", "hex": "#E8B4B8" }
-      ]
+        { "nom": "Noir", "hex": "#1A1A1A" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Bandoulière", "Taille personnalisée"]
     },
     {
       "id": 3,
-      "nom": "Tote Bag Floral",
-      "description": "Grand tote bag à motifs floraux, confectionné avec des fils de coton naturel. Anse longue. Capacité généreuse.",
-      "photo": "/images/tote-bag-floral.jpg",
-      "prix": "55€",
-      "badge": "Nouveau",
+      "nom": "Petit sac noir à fleur",
+      "description": "Petit sac chic et lumineux, sublimé par une fleur jaune/orange. Parfait pour les sorties estivales ou en bord de mer. Dimensions : 19,5 × 13,7 cm (sans anse) / 23,5 cm (avec anse). Fil t-shirt polyester, lavable en machine.",
+      "photo": "/images/petit-sac-noir-fleur.jpg",
+      "prix": "60€",
+      "badge": null,
       "couleurs": [
-        { "nom": "Blanc Cassé", "hex": "#F9F4EC" },
-        { "nom": "Vert Menthe", "hex": "#88C9A1" },
-        { "nom": "Moutarde", "hex": "#D4A017" }
+        { "nom": "Noir / Fleur jaune", "hex": "#1A1A1A" },
+        { "nom": "Noir / Fleur orange", "hex": "#C4673A" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
       ],
-      "options": ["Bandoulière", "Décoration brodée"]
+      "options": ["Fleur décorative", "Taille personnalisée"]
     },
     {
       "id": 4,
-      "nom": "Panier Tressé",
-      "description": "Panier décoratif idéal pour la salle de bain ou le salon. Rangement élégant et pratique. Hauteur : 20 cm.",
-      "photo": "/images/panier-tresse.jpg",
-      "prix": "38€",
+      "nom": "Bonnet adulte turquoise",
+      "description": "Bonnet doux et chaleureux, idéal pour affronter les hivers les plus froids avec élégance. Dimensions : 27 × 21 cm. Laine acrylique douce, lavable en machine. Temps de réalisation : 4 heures.",
+      "photo": "/images/bonnet-adulte-turquoise.jpg",
+      "prix": "35€",
       "badge": null,
       "couleurs": [
-        { "nom": "Naturel", "hex": "#E8D5B7" },
-        { "nom": "Caramel", "hex": "#B5732A" }
+        { "nom": "Turquoise", "hex": "#2ABFBF" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
       ],
-      "options": ["Décoration florale", "Nœud décoratif"]
+      "options": ["Pompon", "Taille personnalisée"]
+    },
+    {
+      "id": 5,
+      "nom": "Bonnet bébé gris",
+      "description": "Petit bonnet doux et confortable, spécialement conçu pour garder les bébés bien au chaud. Dimensions : 21 × 16,5 cm. Laine acrylique douce, lavable en machine. Temps de réalisation : 3 heures.",
+      "photo": "/images/bonnet-bebe-gris.jpg",
+      "prix": "25€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Gris", "hex": "#9E9E9E" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée"]
+    },
+    {
+      "id": 6,
+      "nom": "Fleur décorative",
+      "description": "Délicate fleur décorative en crochet, parfaite pour personnaliser vêtements, sacs ou décoration. Taille : 8 cm. Fil chenille et acrylique doux. Non lavable en machine. Temps de réalisation : 30 minutes.",
+      "photo": "/images/fleur-decorative.jpg",
+      "prix": "10€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée"]
+    },
+    {
+      "id": 7,
+      "nom": "Paréo orange/rouge",
+      "description": "Paréo élégant aux teintes chaudes, idéal pour sublimer vos tenues estivales. Dimensions : 105 × 50 cm. Fil t-shirt polyester, lavable en machine. Temps de réalisation : 8 heures.",
+      "photo": "/images/pareo-orange-rouge.jpg",
+      "prix": "45€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Orange/Rouge", "hex": "#D45A2A" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": []
+    },
+    {
+      "id": 8,
+      "nom": "Bonnet gris épais",
+      "description": "Bonnet adulte à la texture épaisse et douce, offrant confort et chaleur avec une touche d'élégance. Dimensions : 30 × 22,3 cm. Fil chenille polyester microfibre, lavable en machine. Temps de réalisation : 5 heures.",
+      "photo": "/images/bonnet-gris-epais.jpg",
+      "prix": "40€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Gris", "hex": "#7A7A7A" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée"]
+    },
+    {
+      "id": 9,
+      "nom": "Sac coquillage blanc",
+      "description": "Sac unique en forme de coquillage, véritable pièce signature alliant originalité et élégance. Dimensions : 21 × 16,6 cm (fermé) / 28 cm (ouvert). Fil t-shirt polyester, lavable en machine. Temps de réalisation : 8 heures.",
+      "photo": "/images/sac-coquillage-blanc.jpg",
+      "prix": "80€",
+      "badge": "Pièce unique",
+      "couleurs": [
+        { "nom": "Blanc", "hex": "#F5F0E8" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Bandoulière", "Décoration"]
+    },
+    {
+      "id": 10,
+      "nom": "Débardeur dos nu à lacets",
+      "description": "Débardeur dos nu à lacets, parfait pour l'été. Léger, féminin et élégant. Dimensions : 36,5 cm (attaché) × 22 cm. Laine polyester, lavable en machine. Temps de réalisation : 7 heures.",
+      "photo": "/images/debardeur-dos-nu.jpg",
+      "prix": "25€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée"]
+    },
+    {
+      "id": 11,
+      "nom": "Mini crop top bleu",
+      "description": "Mini crop top léger et tendance, idéal pour la plage ou les journées estivales. Dimensions : 39 × 14,6 cm. Laine polyester, lavable en machine. Temps de réalisation : 5 heures.",
+      "photo": "/images/mini-crop-top-bleu.jpg",
+      "prix": "20€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Bleu", "hex": "#4A7AB5" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée"]
+    },
+    {
+      "id": 12,
+      "nom": "Veste ourson bébé",
+      "description": "Adorable veste ourson pour bébé, douce et confortable, parfaite pour les journées fraîches. Dimensions : 29 cm × 44,5 cm (avec capuche). Laine acrylique, lavable en machine. Temps de réalisation : 12 heures.",
+      "photo": "/images/veste-ourson-bebe.jpg",
+      "prix": "65€",
+      "badge": "Coup de cœur",
+      "couleurs": [
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée", "Décorations"]
+    },
+    {
+      "id": 13,
+      "nom": "Débardeur rose à fleurs",
+      "description": "Débardeur délicat orné de fleurs et de perles, pour un style féminin et raffiné. Dimensions : 42,5 × 24 cm. Laine polyester, lavable en machine. Temps de réalisation : 8 heures.",
+      "photo": "/images/debardeur-rose-fleurs.jpg",
+      "prix": "40€",
+      "badge": null,
+      "couleurs": [
+        { "nom": "Rose", "hex": "#E8B4B8" },
+        { "nom": "Personnalisable", "hex": "#C9A84C" }
+      ],
+      "options": ["Taille personnalisée", "Décorations florales", "Perles"]
     }
   ]
 }
